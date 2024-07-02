@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.4
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: devbook
+      MYSQL_USER: golang
+      MYSQL_PASSWORD: gopass
+    ports:
+      - 3306:3306
+    volumes:
+      - gomysql:/var/lib/mysql
+      
+volumes:
+  gomysql:
